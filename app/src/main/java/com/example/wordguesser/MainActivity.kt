@@ -32,18 +32,47 @@ class MainActivity : AppCompatActivity() {
             userGuess.setText("")
             val userGuessCheck = checkGuess(textEntered.toString().uppercase(), correctWord)
             guessCounter++
+            if (textEntered.toString().length != 4){
+                val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
+                toast.setGravity(Gravity.CENTER, 0, 10)
+                toast.show()
+            }
 
             if (guessCounter == 1) {
+                if (textEntered.toString().length != 4) {
+                    val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER, 0, 10)
+                    toast.show()
+                    guessCounter--
+                }
+                else{
                 guess1.text = textEntered.toString().uppercase()
                 guess1Check.text = userGuessCheck
+                }
             }
             else if (guessCounter == 2) {
-                guess2.text = textEntered.toString().uppercase()
-                guess2Check.text = userGuessCheck
+                if (textEntered.toString().length != 4) {
+                    val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER, 0, 10)
+                    toast.show()
+                    guessCounter--
+                }
+                else {
+                    guess2.text = textEntered.toString().uppercase()
+                    guess2Check.text = userGuessCheck
+                }
             }
             else if (guessCounter == 3) {
-                guess3.text = textEntered.toString().uppercase()
-                guess3Check.text = userGuessCheck
+                if (textEntered.toString().length != 4) {
+                    val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER, 0, 10)
+                    toast.show()
+                    guessCounter--
+                }
+                else {
+                    guess3.text = textEntered.toString().uppercase()
+                    guess3Check.text = userGuessCheck
+                }
             }
 
             if (textEntered.toString().uppercase() == correctWord) {
