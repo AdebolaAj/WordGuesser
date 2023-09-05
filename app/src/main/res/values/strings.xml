@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WordGuesser</string>
+    <string name="win">Congrats you got the word!</string>
+</resources>
