@@ -81,6 +81,8 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
                 submitButton.isEnabled = false
                 userGuess.isEnabled = false
+                correctWordView.text = correctWord
+                correctWordView.visibility = View.VISIBLE
                 resetButton.visibility = View.VISIBLE
             } else if (guessCounter == 3){
                 correctWordView.text = correctWord
