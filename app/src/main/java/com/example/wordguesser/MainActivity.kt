@@ -32,14 +32,10 @@ class MainActivity : AppCompatActivity() {
             userGuess.setText("")
             val userGuessCheck = checkGuess(textEntered.toString().uppercase(), correctWord)
             guessCounter++
-            if (textEntered.toString().length != 4){
-                val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
-                toast.setGravity(Gravity.CENTER, 0, 10)
-                toast.show()
-            }
+            val alpha = isLetters(textEntered.toString())
 
             if (guessCounter == 1) {
-                if (textEntered.toString().length != 4) {
+                if (textEntered.toString().length != 4 || !alpha){
                     val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER, 0, 10)
                     toast.show()
@@ -51,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else if (guessCounter == 2) {
-                if (textEntered.toString().length != 4) {
+                if (textEntered.toString().length != 4 || !alpha) {
                     val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER, 0, 10)
                     toast.show()
@@ -63,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else if (guessCounter == 3) {
-                if (textEntered.toString().length != 4) {
+                if (textEntered.toString().length != 4 || !alpha) {
                     val toast = Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT)
                     toast.setGravity(Gravity.CENTER, 0, 10)
                     toast.show()
@@ -124,5 +120,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return result
+    }
+    private fun isLetters(string: String): Boolean {
+        return string.matches("^[a-zA-Z]*$".toRegex())
     }
 }
